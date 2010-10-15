@@ -1,5 +1,5 @@
 --[[****************************************************************
-	LootCount v1.21
+	LootCount v1.50
 
 	Author: Evil Duck
 	****************************************************************
@@ -12,6 +12,7 @@
 
 	****************************************************************]]
 
+-- 1.50-RC1 WoW 4
 -- 1.21 Better quest-item tooltip from the Quest-Item watch, added quest-item info in tooltip
 -- 1.20a Fixed dependency-bug
 -- 1.20 Added quest-item watch, fixed bug for setting plugin watch on plugin
@@ -50,7 +51,7 @@
 BINDING_HEADER_LOOTCOUNT = "LootCount bindings";
 BINDING_NAME_TOGGLELOOTCOUNT = "Toggle interface";
 BINDING_NAME_SETDIVIDER = "Add divider";
-LOOTCOUNT_VERSIONTEXT = "LootCount v1.21";
+LOOTCOUNT_VERSIONTEXT = "LootCount v1.50";
 SLASH_LOOTCOUNT1 = "/lootcount";
 SLASH_LOOTCOUNT2 = "/lc";
 local LOOTCOUNT_DATAVERSION = 2;
