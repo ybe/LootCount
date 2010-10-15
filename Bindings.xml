@@ -1,0 +1,12 @@
+<Bindings>
+	<Binding name="TOGGLELOOTCOUNT" header="LOOTCOUNT">
+		if (LootCount_Frame0:IsVisible() ) then
+			LootCount_Frame0:Hide();
+		else
+			LootCount_Slasher();
+		end
+	</Binding>
+	<Binding name="SETDIVIDER">
+		LootCount_Slasher("div");
+	</Binding>
+</Bindings>

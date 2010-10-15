@@ -1,0 +1,97 @@
+Shows the total amount you have of items. The actual items may be in your bags, banks, or on one or more of your alts. Supports usable items, quest-items, and more.
+
+Description
+LootCount displays item-counts in a variable interface. Just drag an item to the interface and go loot stuff. LootCount can be as big or small as you want, and it has been tested with 100+ items.
+If you are installing LootCount for the first time, read the section "First-time install" below.
+
+Feature-list:
+o Shows item-count from bags, bank, alts, group/raid (and combinations thereof)
+o Supports usable items
+o Supports items required to finish quests
+o Supports individual goals (wanted amount) for each item-watch
+o Item-watches can individually be set to local-mode (count current character only)
+o The interface can be locked so you wont move it or delete items accidentally
+o The number of items to watch is only limited by your screen size
+o Interface and text are resizable
+o Watches are dynamically generated when they are needed
+o Supports one local and two global layouts
+o Supports plug-ins
+o Plug-ins are individually selectable from the add-on screen within WoW
+o A few plug-ins comes bundled with LootCount
+
+LootCount v1.20 (Changes since v1.16)
+[added] Quest-item watch
+[fix] Bug when setting plugin watch on plugin
+[added] New plugin: Profession watch
+[added] Spacers (check key bindings)
+
+New in this release
+- Quest-items
+Read the section "Quest-items" below.
+
+- Spacers
+This is an empty slot that will not display anything, and it is to be used as a spacer between items if you feel like being tidy.
+Spacers should be assigned to a shortcut key in the WoW keybindings for quick access. It is also accessible with the command "/lc div". When the available spaces becomes visible, just click where you want the spacers just as you would with a normal item.
+
+- Plugin: Profession
+This plugin is explained in the plugin-section below.
+
+First-time install
+LootCount is not visible the first time you install it. Show/hide LootCount by typing "/lc". This can also be assigned to a key in the native WoW key-binding options. LootCount will appear in the middle of your screen as an empty green frame. This frame can be moved by dragging it by the corners (and ONLY the corners). Place it somewhere and drop an item on it.
+
+Adding more items
+Drag a new item to the LootCount interface, and drop it on any of the newly created slots. Ot you can drop it on an existing item.
+
+Removing item-watches
+Double-click an item with the right mouse-button.
+
+Accessing the menu
+Right-click an edge of the center frame (not a corner), and the menu will appear.
+
+Group/raid
+If you are in a group with someone that also have LootCount, you can watch items as a total. The most common use for this feature is to grind rep-items together with a friend. Both can then drop the rep-item on LootCount, and you will then read a shared total for this item. Now - if you in addition to this want to monitor your items only, you can drop the same item one more time and switch on local-mode for that item-watch.
+You can switch this off from the menu.
+
+Usable items
+If you place a usable item in LootCount, it will be displayed with a green border and will be activated by a single click. This is a handy space-saver for motes and certain enchanting reagents.
+
+Quest-items
+These are items needed to complete a quest that you are on. So, if you don't have any items for any of your quests, this watch will display a questionmark. Just select it from the menu, and click the slot where you want it. You can place as many as you want, as they will always display different items.
+
+Goals
+Right-click an item in the LootCount interface, and select "Set goal". Enter the number of items you need and press OK. The watch will now contain two numbers: One for the amount you have, and one for the number of items you still need.
+
+Local-mode
+If you for a single watch want it to count only items that you have on your current character, you may want to switch on local-mode. This would for example make sense with soulbound loot. Just right-click the watch and select "local".
+
+Lock
+To lock LootCount, open the menu and select "Lock". This will disable moving of the interface and deletion of watches. You will notice the center frame turns red when it is locked.
+
+Layouts
+Each character has its own layout. There are also two global layouts available from the LootCount menu. These are common for all characters within a server and faction. Upon selecting a global layout, the center frame turns blue.
+
+Plug-ins
+Plug-ins are selectable from the LootCount menu.
+A few plug-ins comes bundled with LootCount:
+- Repair
+- Reputation kill-countdown
+- Experience kill-countdown
+- Profession level
+Any plug-in can be individually switched on/off from the addon-menu at the character selection screen in WoW to conserve memory.
+
+Bundled plug-ins:
+- Repair
+This plugin will show what the current cost for repair is, and the lowest durability of your worn items.
+
+- Profession
+This plugin can monitor your current level in a profession. It is made very simple (for my own use mostly), and will need to see a profession level-up message before it knows about your profession. A profession is selected by right-clicking the watch.
+
+- Kill-countdown with XP and reputation
+Ever wondered how many kills you need to level up, or how many kills you need to get to the next reputation level? If you have, LootCount will tell you. Just select the option (REP and/or XP) you need from the LootCount menu and click one of the empty slots that just appeared. If you chose XP, that is all there is to it. If you chose REP you will also need to select the faction you want to watch. You do this by opening the WoW reputation window (shortcut "U"), click the faction you want to watch, check the "View as experience bar" option.
+The counter icon will contain two numbers. The bottom-right number will show an estimate based on the last mobs you have been killing, and the upper left will show you how many of the last mob you killed you will need to get to the next level.
+If you choose to switch zone or mob-type, LootCount will adapt and tweak the estimate within a number of kills.
+
+
+Special thanks to:
+Faladrin for the initial code and idea for goal-functionality.
+Belleboom for group/raid idea.

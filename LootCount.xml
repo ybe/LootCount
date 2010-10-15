@@ -1,0 +1,134 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Script file="LootCount.lua" />
+	<GameTooltip name="LootCount_Hidden_Tooltip" inherits="GameTooltipTemplate" parent="UIParent" hidden="true"/>
+	<Button name="LootCount_SecureButtonTemplate" inherits="SecureActionButtonTemplate" virtual="true">
+		<Size><AbsDimension x="25" y="25"/></Size>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="$parentIconTexture"/>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIconTextureOverlay"/>
+				<FontString name="$parentMyCount" inherits="NumberFontNormalYellow" outline="NORMAL" justifyH="RIGHT" hidden="false">
+					<Anchors><Anchor point="BOTTOMRIGHT"><Offset><AbsDimension x="1" y="-1"/></Offset></Anchor></Anchors>
+				</FontString>
+				<FontString name="$parentOurStock" inherits="NumberFontNormalYellow" outline="NORMAL" justifyH="LEFT" hidden="false">
+					<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="-1" y="0"/></Offset></Anchor></Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<NormalTexture name="$parentNormalTexture" file=""/>
+		<Scripts>
+			<OnLoad>self:RegisterForClicks("LeftButtonUp","RightButtonUp");</OnLoad>
+			<OnEnter>LootCount_Button_OnEnter(self);</OnEnter>
+			<OnLeave>ResetCursor();GameTooltip:Hide();</OnLeave>
+			<PreClick>LootCount_Button_OnClick(self,button,down);</PreClick>
+			<OnReceiveDrag>LootCount_PlaceItem(self);</OnReceiveDrag>
+		</Scripts>
+	</Button>
+	<Button name="LootCount_DeadButtonTemplate" inherits="ItemButtonTemplate" virtual="true">
+		<Size><AbsDimension x="25" y="25"/></Size>
+		<Layers>
+			<Layer level="BORDER">
+				<Texture name="$parentIconTexture"/>
+			</Layer>
+			<Layer level="ARTWORK">
+				<Texture name="$parentIconTextureOverlay"/>
+				<FontString name="$parentMyCount" inherits="NumberFontNormalYellow" outline="NORMAL" justifyH="RIGHT" hidden="false">
+					<Anchors><Anchor point="BOTTOMRIGHT"><Offset><AbsDimension x="1" y="-1"/></Offset></Anchor></Anchors>
+				</FontString>
+				<FontString name="$parentOurStock" inherits="NumberFontNormalYellow" outline="NORMAL" justifyH="LEFT" hidden="false">
+					<Anchors><Anchor point="TOPLEFT"><Offset><AbsDimension x="-1" y="0"/></Offset></Anchor></Anchors>
+				</FontString>
+			</Layer>
+		</Layers>
+		<NormalTexture name="$parentNormalTexture" file=""/>
+	</Button>
+	<Button name="LootCount_ButtonTemplate" inherits="LootCount_DeadButtonTemplate" virtual="true">
+		<Scripts>
+			<OnLoad>self:RegisterForClicks("LeftButtonUp","RightButtonUp");</OnLoad>
+			<OnEnter>LootCount_Button_OnEnter(self);</OnEnter>
+			<OnLeave>ResetCursor();GameTooltip:Hide();</OnLeave>
+			<OnClick>LootCount_Button_OnClick(self,button,down);</OnClick>
+			<OnReceiveDrag>LootCount_PlaceItem(self);</OnReceiveDrag>
+		</Scripts>
+	</Button>
+	<Button name="LootCount_DropDownButtonTemplate" virtual="true">
+		<Scripts>
+			<OnLoad>self:RegisterForClicks("RightButtonDown");</OnLoad>
+			<OnClick>if (button=="RightButton") then LootCount_ShowMenu(self); end</OnClick>
+		</Scripts>
+	</Button>
+	<Button name="LootCount_GrabLinkButtonTemplate" inherits="UIPanelButtonTemplate2" text="L" virtual="true">
+		<Size><AbsDimension x="21" y="21"/></Size>
+		<Scripts>
+			<OnClick>LootCount_GrabLinkButton_OnClick();</OnClick>
+			<OnEnter>LootCount_Button_OnEnter(self);</OnEnter>
+			<OnLeave>ResetCursor();GameTooltip:Hide();</OnLeave>
+		</Scripts>
+	</Button>
+
+	<Frame name="LootCount_HiddenCacheFrame" visible="false">
+		<Scripts>
+			<OnUpdate>LootCount_OnUpdate(self,elapsed);</OnUpdate>
+		</Scripts>
+	</Frame>
+
+	<Frame name="LootCount_FrameTemplate" alpha="100" toplevel="true" movable="true" enableMouse="true" enableKeyboard="false" hidden="true" parent="UIParent" virtual="true">
+		<Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border" tile="true">
+			<EdgeSize><AbsValue val="12"/></EdgeSize>
+			<TileSize><AbsValue val="12"/></TileSize>
+		</Backdrop>
+		<Size><AbsDimension x="40" y="40"/></Size>
+		<Anchors><Anchor point="CENTER"><Offset><AbsDimension x="-1" y="-1"/></Offset></Anchor></Anchors>
+		<Frames>
+			<Frame name="$parentOptions" inherits="UIDropDownMenuTemplate" id="1">
+				<Scripts><OnLoad>LootCount_BuildMenu();</OnLoad></Scripts>
+			</Frame>
+			<Frame name="$parentButtonOptions" inherits="UIDropDownMenuTemplate" id="2">
+				<Scripts><OnLoad>LootCount_BuildButtonMenu();</OnLoad></Scripts>
+			</Frame>
+			<Button name="LootCountItem0_0" inherits="LootCount_ButtonTemplate"/>
+			<Button name="$parentDropDownButtonT" inherits="LootCount_DropDownButtonTemplate">
+				<Anchors><Anchor point="TOP"/> <Anchor point="BOTTOM" relativeTo="LootCountItem0_0" relativePoint="TOP"/> </Anchors>
+				<Scripts>
+					<OnEnter>LootCount_Frame_OnEnter(self,2);</OnEnter>
+					<OnLeave>GameTooltip:Hide();</OnLeave>
+				</Scripts>
+			</Button>
+			<Button name="$parentDropDownButtonB" inherits="LootCount_DropDownButtonTemplate">
+				<Anchors><Anchor point="BOTTOM"/> <Anchor point="TOP" relativeTo="LootCountItem0_0" relativePoint="BOTTOM"/> </Anchors>
+				<Scripts>
+					<OnEnter>LootCount_Frame_OnEnter(self,2);</OnEnter>
+					<OnLeave>GameTooltip:Hide();</OnLeave>
+				</Scripts>
+			</Button>
+			<Button name="$parentDropDownButtonL" inherits="LootCount_DropDownButtonTemplate">
+				<Anchors><Anchor point="LEFT"/><Anchor point="RIGHT" relativeTo="LootCountItem0_0" relativePoint="LEFT"/></Anchors>
+				<Scripts>
+					<OnEnter>LootCount_Frame_OnEnter(self,2);</OnEnter>
+					<OnLeave>GameTooltip:Hide();</OnLeave>
+				</Scripts>
+			</Button>
+			<Button name="$parentDropDownButtonR" inherits="LootCount_DropDownButtonTemplate">
+				<Anchors><Anchor point="RIGHT"/><Anchor point="LEFT" relativeTo="LootCountItem0_0" relativePoint="RIGHT"/></Anchors>
+				<Scripts>
+					<OnEnter>LootCount_Frame_OnEnter(self,2);</OnEnter>
+					<OnLeave>GameTooltip:Hide();</OnLeave>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Scripts>
+			<OnLoad>LootCount_OnLoad(self);</OnLoad>
+			<OnEvent>LootCount_OnEvent(self,event,...);</OnEvent>
+			<OnEnter>LootCount_OnEnter(self); LootCount_Frame_OnEnter(1);</OnEnter>
+			<OnLeave>GameTooltip:Hide();</OnLeave>
+			<OnDragStart>if (button=="LeftButton" and not LootCount_Populated.Locked) then self:StartMoving(); end</OnDragStart>
+			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+			<OnMouseUp>self:StopMovingOrSizing();</OnMouseUp>
+		</Scripts>
+	</Frame>
+
+	<Frame name="LootCount_Frame0" inherits="LootCount_FrameTemplate">
+	</Frame>
+</Ui>

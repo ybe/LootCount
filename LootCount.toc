@@ -1,0 +1,12 @@
+## Interface: 40000
+## Title: LootCount
+## Notes: Counts stuff
+## DefaultState: Enabled
+## LoadOnDemand: 0
+## Author: Evil Duck
+## SavedVariables: LootCount_Global, LootCount_UsageID
+## SavedVariablesPerCharacter: LootCount_Populated
+## Dependencies:
+##
+
+LootCount.xml
