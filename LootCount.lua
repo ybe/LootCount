@@ -12,7 +12,7 @@
 
 	****************************************************************]]
 
--- 1.50-RC1 WoW 4
+-- 1.50 WoW 4
 -- 1.21 Better quest-item tooltip from the Quest-Item watch, added quest-item info in tooltip
 -- 1.20a Fixed dependency-bug
 -- 1.20 Added quest-item watch, fixed bug for setting plugin watch on plugin
@@ -425,6 +425,7 @@ function LootCount_SetTooltipQuestInfo()
 			end
 		end
 	end
+	GameTooltip:Show();		-- Recalculate size
 end
 
 function LootCount_Hook:SetInventoryItem(unit,slot,nameOnly)
